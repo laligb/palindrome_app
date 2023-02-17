@@ -37,9 +37,11 @@ def create_app(test_config=None):
 
     @app.route("/check", methods=("POST",))
     def check():
+        phrase = request.form["phrase"]
+        is_palindrome = Phrase(phrase).ispalindrome()
         return render_template("result.html",
-                               Phrase=Phrase,
-                               phrase=request.form["phrase"])
+                                phrase=phrase,
+                                is_palindrome=is_palindrome)
 
     return app
 

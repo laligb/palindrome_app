@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Palindrome Result</h1>
 
-  {% if Phrase(phrase).ispalindrome() %}
+  {% if is_palindrome %}
     <div class="result result-success">
       <p>"{{ phrase }}" is a palindrome!</p>
     </div>
@@ -12,4 +12,8 @@
       <p>"{{ phrase }}" isn't a palindrome.</p>
     </div>
   {% endif %}
+
+  <h2>Try another one!</h2>
+
+  {% include "palindrome_form.html" %}
 {% endblock %}
