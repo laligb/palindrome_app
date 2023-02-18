@@ -14,5 +14,10 @@ def test_palindrome_submission(client):
     response = client.post("/check", data={"phrase": phrase})
     assert f'<p>"{phrase}" is a palindrome!</p>' in response.text
 
+def test_palindrome_blank(client):
+    phrase = ""
+    response = client.post("/check", data={"phrase": phrase})
+    assert f'<p>"{phrase}" isn\'t a palindrome!</p>' in response.text
+
 def form_tag():
     return '<form id="palindrome_tester" action="/check" method="post">'
